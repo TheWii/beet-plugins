@@ -13,7 +13,7 @@ def root(args):
     args = map(str, args)
     if project_root.endswith(":"):
         return project_root + '/'.join(args)
-    return project_root + "/" + '/'.join(args)
+    return project_root + '/'.join(args)
 
 def parent(path):
     parts = path.split("/")
