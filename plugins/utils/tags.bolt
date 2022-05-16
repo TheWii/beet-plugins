@@ -1,0 +1,14 @@
+from functools import partial
+
+def tag(name, entry, prepend=False):
+    if prepend:
+        prepend function_tag name {"values": [entry]}
+    else:
+        append function_tag name {"values": [entry]}
+    return entry
+
+def create_tag(name):
+    return partial(tag, name)
+
+load = create_tag(minecraft:load)
+tick = create_tag(minecraft:tick)
