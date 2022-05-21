@@ -1,0 +1,18 @@
+
+from bolt_expressions import Expression, Scoreboard
+
+temp = Scoreboard(Expression.opts.temp_objective, prefixed=False)
+
+def get_facing_direction(output=temp["#direction"]):
+    output = 0
+    if entity @s[y_rotation=135..]:
+        output = 1 # north
+    if entity @s[y_rotation=..-134.9999999999]:
+        output = 1 # north
+    if entity @s[y_rotation=-135..-44.9999999999]:
+        output = 2 # east
+    if entity @s[y_rotation=-45..44.9999999999]:
+        output = 3 # south
+    if entity @s[y_rotation=45..134.9999999999]:
+        output = 4 # west
+    return output
