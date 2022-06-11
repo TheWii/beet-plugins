@@ -1,0 +1,68 @@
+INPUT = [ '$x', '$y', '$z' ]
+TEMP_OBJ = 'pos.input'
+
+BIT_PREFIX = '#bit' 
+
+AXES = [ 'x', 'y', 'z' ]
+LENGTHS = [ 13, 5, 13 ]
+RANGES = [ 30000000, 512, 30000000 ]
+RADIX = 4
+
+generated = {}
+
+
+def bit(axis, layer):
+    return f"{BIT_PREFIX}.{AXES[axis]}.{layer}"
+
+def vector(axis, offset):
+    if axis == 0:
+        return f"~{offset} ~ ~"
+    if axis == 1:
+        return f"~ ~{offset} ~"
+    return f"~ ~ ~{offset}"
+
+
+def generate_positioned(function_path, input=INPUT, input_obj=TEMP_OBJ):
+    rel_path = f"{function_path}/positioned"
+    def generate_bits(input_score, axis, length=LENGTHS[axis]):
+        scoreboard players operation bit(axis, 0) TEMP_OBJ = input_score input_obj
+        for n in range(1, length):
+            scoreboard players operation bit(axis, n) TEMP_OBJ = bit(axis, n-1) TEMP_OBJ
+            scoreboard players operation bit(axis, n-1) TEMP_OBJ %= #radix TEMP_OBJ
+            scoreboard players operation bit(axis, n) TEMP_OBJ /= #radix TEMP_OBJ
+            if (n + 1) == length:
+                scoreboard players operation bit(axis, n) TEMP_OBJ %= #radix TEMP_OBJ
+
+    def generate_layer(axis=0, current=0, length=LENGTHS[axis] ):
+        if current >= length:
+            if axis >= 2:
+                return function_path
+            return generate_layer(axis+1)
+        next_path = generate_layer(axis, current+1)
+        current_path = f"{rel_path}/{AXES[axis]}/{current}"
+        multiplier = RADIX ** current
+        function current_path:
+            for i in range(RADIX):
+                offset = i * multiplier
+                if score bit(axis, current) TEMP_OBJ matches i positioned vector(axis, offset)
+                    run function next_path
+        return current_path
+    
+    run_path = f"{rel_path}/run"
+    function run_path:
+        scoreboard players set #radix TEMP_OBJ RADIX
+        for i in range(3):
+            scoreboard players add input[i] TEMP_OBJ RANGES[i]
+            generate_bits(input[i], i)
+            scoreboard players remove input[i] TEMP_OBJ RANGES[i]
+        at @s positioned -30000000.0 -512.0 -30000000.0
+            run function generate_layer()
+    generated[function_path] = run_path
+    return run_path
+
+def run_positioned(function_path, input=INPUT, input_obj=TEMP_OBJ):
+    run_path = generated.get(function_path)
+    if not run_path:
+        run_path = generate_positioned(function_path, input, input_obj)
+    function run_path
+    return function_path
