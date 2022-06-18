@@ -1,0 +1,12 @@
+from bolt_expressions import Expression, Scoreboard
+
+def create_objective(name, criteria="dummy", prefixed=True):
+    obj = Scoreboard.objective(name, prefixed=prefixed)
+    merge function_tag minecraft:load {"values":[generate_path("load")]}
+    prepend function generate_path("load"):
+        scoreboard objectives add obj criteria
+    return obj
+
+
+temp = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
+const = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
