@@ -1,7 +1,7 @@
 
 from bolt_expressions import Expression, Scoreboard
 
-temp = Scoreboard(Expression.opts.temp_objective, prefixed=False)
+temp = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
 
 def get_facing_direction(output=temp["#direction"]):
     output = 0
