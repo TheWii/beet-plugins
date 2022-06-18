@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beet-plugins"
-version = "0.1.0"
+version = "0.0.0"
 description = ""
 authors = ["TheWii <67249660+TheWii@users.noreply.github.com>"]
 
@@ -10,7 +10,16 @@ bolt = ">=0.3.0"
 bolt-expressions = ">=0.6.1"
 
 [tool.poetry.dev-dependencies]
+python-semantic-release = "7.28.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+branch = "main"
+version_variable = ["beet_plugins/__init__.py:__version__"]
+version_toml = "pyproject.toml:tool.poetry.version"
+major_on_zero = false
+upload_to_repository = false
+build_command = "poetry build"
