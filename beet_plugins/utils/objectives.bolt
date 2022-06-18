@@ -1,4 +1,4 @@
-from bolt_expressions import Expression, Scoreboard
+from bolt_expressions import Expression, Scoreboard, Data
 
 def create_objective(name, criteria="dummy", prefixed=True):
     obj = Scoreboard.objective(name, prefixed=prefixed)
@@ -7,6 +7,7 @@ def create_objective(name, criteria="dummy", prefixed=True):
         scoreboard objectives add obj criteria
     return obj
 
+strg = Data.storage(generate_path("temp"))
 
-temp = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
-const = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
+temp = create_objective("temp")
+main = create_objective("main")
