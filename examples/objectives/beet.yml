@@ -1,0 +1,20 @@
+name: example-scoreboard
+data_pack:
+  load:
+    data/test/functions: src
+output: dist
+require:
+  - bolt
+  - beet_plugins.scoreboard
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
+  scoreboard:
+    path: init
+    ignore:
+      - math.temp
+    criteria:
+      abcdefg: trigger
+      kills: kills
+      other.obj: health
