@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2022-08-02)
+### Feature
+* Add lantern.bolt ([`a4c2712`](https://github.com/TheWii/beet-plugins/commit/a4c2712e00ebeb85b6e6bb3caca5bcceac339f7e))
+
 ## v0.1.3 (2022-08-02)
 ### Fix
 * Objective init commands not being prepended ([`64c6b2e`](https://github.com/TheWii/beet-plugins/commit/64c6b2e5f47ed2971dc92ca11d4990712944cd53))
