@@ -1,0 +1,20 @@
+from ./tags import tag, create_tag
+
+tag(minecraft:load, "#load:_private/load")
+
+merge function_tag load:_private/load {
+    "values": [
+        "#load:_private/init",
+        {"id": "#load:pre_load", "required": false},
+        {"id": "#load:load", "required": false},
+        {"id": "#load:post_load", "required": false},
+    ]
+}
+
+function tag(load:_private/init, load:_private/init):
+    scoreboard objectives add load.status dummy
+    scoreboard players reset * load.status
+
+pre_load = create_tag("load:pre_load")
+load = create_tag("load:load")
+post_load = create_tag("load:post_load")
