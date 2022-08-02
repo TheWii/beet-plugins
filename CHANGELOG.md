@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.3 (2022-08-02)
+### Fix
+* Objective init commands not being prepended ([`64c6b2e`](https://github.com/TheWii/beet-plugins/commit/64c6b2e5f47ed2971dc92ca11d4990712944cd53))
+
 ## v0.1.2 (2022-08-02)
 ### Fix
 * Actually fix objective init path ([`d6810ba`](https://github.com/TheWii/beet-plugins/commit/d6810ba6b10ec868867f0fa59a00a44b03ef7408))
