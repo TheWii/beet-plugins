@@ -1,11 +1,10 @@
 from bolt_expressions import Expression, Scoreboard, Data
 
-LOAD_PATH = Expression.opts.init_path
+INIT_PATH = generate_path(Expression.opts.init_path)
 
 def create_objective(name, criteria="dummy", prefixed=True):
     obj = Scoreboard.objective(name, prefixed=prefixed)
-    merge function_tag minecraft:load {"values":[LOAD_PATH]}
-    prepend function LOAD_PATH:
+    prepend function INIT_PATH:
         scoreboard objectives add obj criteria
     return obj
 
