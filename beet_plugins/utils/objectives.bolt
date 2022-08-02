@@ -1,11 +1,10 @@
 from bolt_expressions import Expression, Scoreboard, Data
 
-INIT_PATH = generate_path(Expression.opts.init_path)
-
 def create_objective(name, criteria="dummy", prefixed=True):
     obj = Scoreboard.objective(name, prefixed=prefixed)
-    prepend function INIT_PATH:
-        scoreboard objectives add obj criteria
+    Expression.init_commands.insert(
+        0, f"scoreboard objectives add {obj} {criteria}"
+    )
     return obj
 
 strg = Data.storage(generate_path("temp"))
