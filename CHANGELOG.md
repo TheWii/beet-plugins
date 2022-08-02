@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.1 (2022-08-02)
+### Fix
+* Objectives should use bolt-expressions init path ([`91524ec`](https://github.com/TheWii/beet-plugins/commit/91524ec2c91b257fd6a2c75aa176b468461f0f09))
+
 ## v0.1.0 (2022-06-19)
 ### Feature
 * Scoreboard.py ([`7c0d841`](https://github.com/TheWii/beet-plugins/commit/7c0d841389dfd4a2c9ff60fc337385186a8e6712))
