@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.2 (2022-08-02)
+### Fix
+* Actually fix objective init path ([`d6810ba`](https://github.com/TheWii/beet-plugins/commit/d6810ba6b10ec868867f0fa59a00a44b03ef7408))
+
 ## v0.1.1 (2022-08-02)
 ### Fix
 * Objectives should use bolt-expressions init path ([`91524ec`](https://github.com/TheWii/beet-plugins/commit/91524ec2c91b257fd6a2c75aa176b468461f0f09))
