@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beet-plugins"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = ["TheWii <67249660+TheWii@users.noreply.github.com>"]
 
