@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2022-08-04)
+### Feature
+* Add root_relative_location.py ([`413bb40`](https://github.com/TheWii/beet-plugins/commit/413bb407262401a503c31e76205d5fda55c98f8e))
+
 ## v0.2.0 (2022-08-02)
 ### Feature
 * Add lantern.bolt ([`a4c2712`](https://github.com/TheWii/beet-plugins/commit/a4c2712e00ebeb85b6e6bb3caca5bcceac339f7e))
