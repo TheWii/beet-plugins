@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2022-08-14)
+### Fix
+* Use relative import path in math.bolt ([`1ed3efc`](https://github.com/TheWii/beet-plugins/commit/1ed3efc299fccf2d57f365fcaebd7afec6bbce4c))
+* Add status objective to lantern load ([`166d8d0`](https://github.com/TheWii/beet-plugins/commit/166d8d0cbac41e440f538b8fe5472c3fb5b18b01))
+
 ## v0.3.0 (2022-08-04)
 ### Feature
 * Add root_relative_location.py ([`413bb40`](https://github.com/TheWii/beet-plugins/commit/413bb407262401a503c31e76205d5fda55c98f8e))
