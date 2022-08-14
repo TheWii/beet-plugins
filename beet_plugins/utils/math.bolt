@@ -1,5 +1,5 @@
 from bolt_expressions import Expression, Scoreboard
-from utils:path import root
+from ./path import root
 
 temp = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
 
