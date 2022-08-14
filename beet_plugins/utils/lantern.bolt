@@ -1,4 +1,6 @@
 from ./tags import tag, create_tag
+from ./objectives import create_objective
+
 
 tag(minecraft:load, "#load:_private/load")
 
@@ -15,6 +17,9 @@ function tag(load:_private/init, load:_private/init):
     scoreboard objectives add load.status dummy
     scoreboard players reset * load.status
 
+
 pre_load = create_tag("load:pre_load")
 load = create_tag("load:load")
 post_load = create_tag("load:post_load")
+
+status = create_objective("load.status", prefixed=False)
