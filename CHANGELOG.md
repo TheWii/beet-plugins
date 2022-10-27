@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.2 (2022-10-27)
+### Fix
+* Change root relative location prefix from "~" to "~/" ([`7cc9e64`](https://github.com/TheWii/beet-plugins/commit/7cc9e6487e4d2aa301469e584cdbf22c1e92b1ee))
+
 ## v0.3.1 (2022-08-14)
 ### Fix
 * Use relative import path in math.bolt ([`1ed3efc`](https://github.com/TheWii/beet-plugins/commit/1ed3efc299fccf2d57f365fcaebd7afec6bbce4c))
