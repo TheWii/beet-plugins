@@ -21,7 +21,7 @@ from mecha import (
 )
 
 
-PATTERN = r"#?~[0-9a-z_./-]+"
+PATTERN = r"#?~/[0-9a-z_./-]+"
 
 
 def beet_default(ctx: Context):
@@ -50,7 +50,7 @@ class RootRelativeLocationParser:
                 return self.parser(stream)
 
             is_tag = token.value.startswith("#")
-            value = token.value[2:] if is_tag else token.value[1:]
+            value = token.value[3:] if is_tag else token.value[2:]
             full_path = self.ctx.generate.path(value)
             namespace, _, path = full_path.rpartition(":")
 
@@ -71,7 +71,7 @@ class RootRelativeLocationLiteralParser:
                 return self.parser(stream)
 
             is_tag = token.value.startswith("#")
-            stripped = token.value[2:] if is_tag else token.value[1:]
+            stripped = token.value[3:] if is_tag else token.value[2:]
             value = "#" * is_tag + self.ctx.generate.path(stripped)
 
             node = AstValue(value=value)
