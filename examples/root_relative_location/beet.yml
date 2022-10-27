@@ -1,0 +1,15 @@
+name: example-root-relative-location
+data_pack:
+  load:
+    data/test/functions/prefix: src
+output: dist
+require:
+  - bolt
+  - beet_plugins.root_relative_location
+  #- bolt.contrib.debug_codegen
+  #- mecha.contrib.debug_ast
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
+  generate_prefix: "prefix"
