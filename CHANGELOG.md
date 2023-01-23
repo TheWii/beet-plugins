@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-01-23)
+### Feature
+* Add latest_snapshot.py ([`ee80baa`](https://github.com/TheWii/beet-plugins/commit/ee80baa702045e72880df77d872514ac5e74687c))
+
 ## v0.3.2 (2022-10-27)
 ### Fix
 * Change root relative location prefix from "~" to "~/" ([`7cc9e64`](https://github.com/TheWii/beet-plugins/commit/7cc9e6487e4d2aa301469e584cdbf22c1e92b1ee))
