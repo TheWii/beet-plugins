@@ -1,0 +1,12 @@
+name: example-latest-snapshot
+data_pack:
+  load:
+    data/test/functions: src
+output: dist
+require:
+  - beet_plugins.latest_snapshot
+  - bolt
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
