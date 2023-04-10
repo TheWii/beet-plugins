@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.1 (2023-04-10)
+### Fix
+* Support empty '~/' path ([`1ed83a9`](https://github.com/TheWii/beet-plugins/commit/1ed83a9639289ed134c0e12638ae35ce92e4bd3f))
+
 ## v0.6.0 (2023-04-10)
 ### Feature
 * Root relative locations evaluate at runtime ([`97b2701`](https://github.com/TheWii/beet-plugins/commit/97b2701463595f891c2881303310afc19b06cd2b))
