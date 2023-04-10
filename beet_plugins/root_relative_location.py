@@ -16,7 +16,6 @@ from functools import partial
 
 from beet import Context, Generator
 from bolt import Accumulator, InterpolationParser, Runtime
-from tokenstream import TokenStream, set_location
 from mecha import (
     AlternativeParser,
     AstResourceLocation,
@@ -26,9 +25,9 @@ from mecha import (
     Visitor,
     rule,
 )
+from tokenstream import TokenStream, set_location
 
-
-PATTERN = r"#?~/[0-9a-z_./-]+"
+PATTERN = r"#?~/[0-9a-z_./-]*"
 
 
 def beet_default(ctx: Context):

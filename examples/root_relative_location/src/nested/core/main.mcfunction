@@ -5,6 +5,8 @@ path = ~/other
 #from path import msg
 # ModuleNotFoundError: No module named 'path'
 
+print(~/)
+
 print(~/abc)
 print(./abc)
 
