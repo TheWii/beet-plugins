@@ -48,14 +48,14 @@ dev = ["Sphinx (==4.3.2)", "black (==22.3.0)", "build (==0.8.0)", "flake8 (==4.0
 
 [[package]]
 name = "bolt"
-version = "0.30.1"
+version = "0.31.0"
 description = "Supercharge Minecraft commands with Python"
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "bolt-0.30.1-py3-none-any.whl", hash = "sha256:c2f66ae3b3e99b676c946536aa0fcc6b53bf4021f502cfeb0b3807ab523a92a4"},
-    {file = "bolt-0.30.1.tar.gz", hash = "sha256:a3301993fe870a2984a820c78faba301898d730169537bb22c716644dc8fb1b8"},
+    {file = "bolt-0.31.0-py3-none-any.whl", hash = "sha256:89b54ef0048a82f60e84e4dec5bfc118ffd13576ce9cf7600099b88408a9a41c"},
+    {file = "bolt-0.31.0.tar.gz", hash = "sha256:f95d164e554bb602fbdcfafa59fbc694843a9aa5247829677b10644db624d51a"},
 ]
 
 [package.dependencies]
@@ -1056,4 +1056,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a45b89bdd57ae48ed2f09a49940bec69b0d980544aa72bbd74365837cc23add0"
+content-hash = "cf77162fbb721de4d3570b38f4283090805e27edacdb28a8dc410cef925317f4"
