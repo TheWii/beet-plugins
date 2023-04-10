@@ -1,0 +1,13 @@
+name: example-nbt-literals
+data_pack:
+  load:
+    data/test/functions: src
+output: dist
+require:
+  - bolt
+  - beet_plugins.nbt_literals
+  #- bolt.contrib.debug_codegen
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
