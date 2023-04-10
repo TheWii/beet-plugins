@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2023-04-10)
+### Feature
+* Add utils plugin ([`4f6d48b`](https://github.com/TheWii/beet-plugins/commit/4f6d48b483f6d9e6af7de09673fcb474e27dfbad))
+
 ## v0.4.0 (2023-01-23)
 ### Feature
 * Add latest_snapshot.py ([`ee80baa`](https://github.com/TheWii/beet-plugins/commit/ee80baa702045e72880df77d872514ac5e74687c))
