@@ -1,0 +1,13 @@
+name: example-utils
+data_pack:
+  load:
+    data/test/functions: src
+output: dist
+require:
+  - bolt
+  - bolt_expressions
+  - beet_plugins.utils
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
