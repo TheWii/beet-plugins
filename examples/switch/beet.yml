@@ -1,0 +1,16 @@
+name: example-switch
+data_pack:
+  load:
+    data/test/functions/prefix: src
+output: dist
+require:
+  - bolt
+  - bolt_expressions
+  - beet_plugins.switch
+  - bolt.contrib.debug_codegen
+  # - mecha.contrib.debug_ast
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
+  generate_prefix: "prefix"

@@ -16,6 +16,7 @@ from functools import partial
 
 from beet import Context, Generator
 from bolt import Accumulator, InterpolationParser, Runtime
+from bolt.utils import internal
 from mecha import (
     AlternativeParser,
     AstResourceLocation,
@@ -27,7 +28,7 @@ from mecha import (
 )
 from tokenstream import TokenStream, set_location
 
-PATTERN = r"#?~/[0-9a-z_./-]*"
+PATTERN = r"#?~/[{}0-9a-z_./-]*"
 
 
 def beet_default(ctx: Context):
@@ -113,11 +114,11 @@ class RootRelativeLocationParser:
 @dataclass
 class RootRelativeLocationCodegen(Visitor):
     @rule(AstRootResourceLocation)
+    @internal
     def root_location(self, node: AstRootResourceLocation, acc: Accumulator):
         result = acc.make_variable()
-        value = acc.helper(
-            "resolve_root_resource_location", f"{node.path!r}", node.is_tag
-        )
+        acc.statement(f"{result} = f{node.path!r}")
+        value = acc.helper("resolve_root_resource_location", result, node.is_tag)
         acc.statement(f"{result} = {value}", lineno=node)
 
         if not node.literal:

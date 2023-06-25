@@ -26,3 +26,13 @@ with ctx.generate["path/to"].push():
     print(~/value)
     function ~/value:
         say nested value
+
+
+function_tag minecraft:tick {
+    "values": [
+        (~/main)
+    ]
+}
+
+bar = 10
+print(~/{bar}/bar)
