@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.2 (2023-06-25)
+### Fix
+* `bolt` version ([`e06bbdd`](https://github.com/TheWii/beet-plugins/commit/e06bbdd745d03319a9fc995413db5d5f27df7fcf))
+
 ## v0.6.1 (2023-04-10)
 ### Fix
 * Support empty '~/' path ([`1ed83a9`](https://github.com/TheWii/beet-plugins/commit/1ed83a9639289ed134c0e12638ae35ce92e4bd3f))
