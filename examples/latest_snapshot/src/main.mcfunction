@@ -1,62 +1,80 @@
-atlas ./test {
-    "sources": [
-        {
-            "type": "directory",
-            "source": "assembly",
-            "prefix": "assembly/"
-        }
-    ]
-}
 
-on vehicle at @s
-    if loaded ~10 ~ ~
-    tp @s ~10 ~ ~
-execute on vehicle at @s
-    if loaded ~10 ~ ~
-    tp @s ~10 ~ ~
+if function ./test function ./foo {arg:123}
 
-execute if biome ~10 ~ ~ minecraft:plains say .
-execute if dimension minecraft:overworld run say .
-execute unless loaded ~ ~ ~ say .
-execute unless biome ~10 ~ ~ minecraft:forest say .
-execute unless dimension minecraft:overworld say .
-if biome ~10 ~ ~ minecraft:plains say .
-if dimension minecraft:overworld run say .
-unless loaded ~ ~ ~ say .
-unless biome ~10 ~ ~ minecraft:forest say .
-unless dimension minecraft:overworld say .
+return run function ./a
 
-fillbiome ~ ~ ~ ~16 ~16 ~16 minecraft:deep_dark
+say calling function with parameters
+function ./bar0 {i:10}
+function ./bar1 with entity @s
+function ./bar2 with entity @s Inventory
+function ./bar3 with storage ./temp
+function ./bar4 with storage ./temp args
+function ./bar5 with block ~ ~ ~
+function ./bar6 with block ~ ~ ~ Items
+function ./bar7 with storage ./temp
+function ./bar8 with storage ./temp args
 
-gamemode survival @a
+say it's forbidden to define and call function with parameters
+say error: Can't define function with arguments. Use 'execute function ...' instead.
+# function ./bar0 {i:10}:
+#     say nested definition!
+# function ./bar1 with entity @s:
+#     say nested definition!
+# function ./bar2 with entity @s Inventory:
+#     say nested definition!
+# function ./bar3 with storage ./temp:
+#     say nested definition!
+# function ./bar4 with storage ./temp args:
+#     say nested definition!
+# function ./bar5 with block ~ ~ ~:
+#     say nested definition!
+# function ./bar6 with block ~ ~ ~ Items:
+#     say nested definition!
+# function ./bar7 with storage ./temp:
+#     say nested definition!
+# function ./bar8 with storage ./temp args:
+#     say nested definition!
 
-gamerule blockExplosionDropDecay true
-gamerule commandModificationBlockLimit 1000
-gamerule globalSoundEvents false
-gamerule lavaSourceConversion true
-gamerule mobExplosionDropDecay true
-gamerule snowAccumulationHeight 10
-gamerule tntExplosionDropDecay true
-gamerule waterSourceConversion true
+say define and execute function with parameters
+execute function ./bar0 {i:10}:
+    say nested definition!
+execute function ./bar1 with entity @s:
+    say nested definition!
+execute function ./bar2 with entity @s Inventory:
+    say nested definition!
+execute function ./bar3 with storage ./temp:
+    say nested definition!
+execute function ./bar4 with storage ./temp args:
+    say nested definition!
+execute function ./bar5 with block ~ ~ ~:
+    say nested definition!
+execute function ./bar6 with block ~ ~ ~ Items:
+    say nested definition!
+execute function ./bar7 with storage ./temp:
+    say nested definition!
+execute function ./bar8 with storage ./temp args:
+    say nested definition!
 
-clone ~ ~ ~ ~10 ~10 ~10 0 0 0 masked
-clone from overworld ~ ~ ~ ~10 ~10 ~10 0 0 0 masked
-clone ~ ~ ~ ~10 ~10 ~10 to nether 0 0 0 masked
-clone from overworld ~ ~ ~ ~10 ~10 ~10 to nether 0 0 0 masked
 
-data modify block ~ ~ ~ Name set string storage test:main value 0 1
-data modify block ~ ~ ~ Name append string block ~ ~1 ~ value 0 1
-data modify block ~ ~ ~ Name prepend string entity @s EntityName 0 1
-data modify block ~ ~ ~ Name insert 0 string storage test:main value 0 1
-data modify block ~ ~ ~ Name merge string storage test:main value 0 1
+# just checking if i havent broken the nesting plugin :)
+if function ./test expand:
+    say a
+    say b
+if function ./test:
+    say a
+    say b
 
-title @s times 0.5s 10t 1d
+append function ./bar9:
+    say appended!
 
-weather clear 10t
-weather rain 0.235s
-weather thunder 1d
+prepend function ./bar9:
+    say prepended!
 
-ride @s mount @e[type=pig,limit=1,sort=nearest]
-ride @s dismount
 
-if score @s abc matches 0 ride @s dismount
+
+from bolt_expressions import Data
+
+strg = Data.storage(./temp)
+
+execute function ./test with var strg.args:
+    say .

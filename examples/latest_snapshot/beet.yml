@@ -6,6 +6,7 @@ output: dist
 require:
   - beet_plugins.latest_snapshot
   - bolt
+  - bolt_expressions
 pipeline:
   - mecha
 meta:
