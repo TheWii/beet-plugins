@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.0 (2023-08-03)
+### Feature
+* Update latest snapshot plugin to 23w31a ([`5a12045`](https://github.com/TheWii/beet-plugins/commit/5a120458a0a31dff2abc8f6dfdfb9b7b1fa5b5b4))
+
 ## v0.6.2 (2023-06-25)
 ### Fix
 * `bolt` version ([`e06bbdd`](https://github.com/TheWii/beet-plugins/commit/e06bbdd745d03319a9fc995413db5d5f27df7fcf))
