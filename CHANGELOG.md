@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.1 (2023-08-03)
+### Fix
+* Properly underline command in error message ([`c29dced`](https://github.com/TheWii/beet-plugins/commit/c29dced3c6ea95720f2a103ce23bc2dea0195d54))
+
 ## v0.7.0 (2023-08-03)
 ### Feature
 * Update latest snapshot plugin to 23w31a ([`5a12045`](https://github.com/TheWii/beet-plugins/commit/5a120458a0a31dff2abc8f6dfdfb9b7b1fa5b5b4))
