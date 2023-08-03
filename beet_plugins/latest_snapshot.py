@@ -170,7 +170,7 @@ class NestedCommandsTransformer(MutatingReducer):
         node: AstCommand,
         top_level: bool = False,
     ) -> List[AstCommand]:
-        name, *_, root = node.arguments
+        name, *args, root = node.arguments
 
         if isinstance(name, AstResourceLocation) and isinstance(root, AstRoot):
             path = name.get_canonical_value()
@@ -186,7 +186,7 @@ class NestedCommandsTransformer(MutatingReducer):
                     "function:name:with:storage:source:path:commands",
                 ):
                     d = Diagnostic("error", f"Can't define function with arguments. Use 'execute function ...' instead.")
-                    raise set_location(d, node, name)
+                    raise set_location(d, node, args[-1])
             else:
                 if node.identifier == "append:function:name:commands":
                     d = Diagnostic("error", f"Can't append commands with execute.")
