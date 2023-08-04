@@ -1,16 +1,16 @@
-from ~/bar import message
+from /bar import message
 print(message)
 
-path = ~/other
+path = /other
 #from path import msg
 # ModuleNotFoundError: No module named 'path'
 
-print(~/)
+print(/)
 
-print(~/abc)
+print(/abc)
 print(./abc)
 
-name = ~/abc
+name = /abc
 function name:
     say hi
 
@@ -18,11 +18,11 @@ function ./relative:
     say hello
 
 
-print(~/value)
-function ~/value:
+print(/value)
+function /value:
     say value
 
 with ctx.generate["path/to"].push():
-    print(~/value)
-    function ~/value:
+    print(/value)
+    function /value:
         say nested value

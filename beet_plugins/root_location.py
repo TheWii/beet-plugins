@@ -1,13 +1,13 @@
-"""Plugin that resolves root-relative resource locations."""
+"""Plugin that resolves root resource locations."""
 
 
 __all__ = [
     "AstRootResourceLocation",
     "beet_default",
     "resolve_root_resource_location",
-    "root_relative_location",
-    "RootRelativeLocationCodegen",
-    "RootRelativeLocationParser",
+    "root_location",
+    "RootLocationCodegen",
+    "RootLocationParser",
 ]
 
 
@@ -27,14 +27,14 @@ from mecha import (
 )
 from tokenstream import TokenStream, set_location
 
-PATTERN = r"#?~/[0-9a-z_./-]*"
+PATTERN = r"#?/[0-9a-z_./-]*"
 
 
 def beet_default(ctx: Context):
-    ctx.require(root_relative_location)
+    ctx.require(root_location)
 
 
-def root_relative_location(ctx: Context):
+def root_location(ctx: Context):
     mc = ctx.inject(Mecha)
     runtime = ctx.inject(Runtime)
 
@@ -44,14 +44,14 @@ def root_relative_location(ctx: Context):
         [
             InterpolationParser("resource_location"),
             CommentDisambiguation(
-                RootRelativeLocationParser(parser=parsers["resource_location_or_tag"])
+                RootLocationParser(parser=parsers["resource_location_or_tag"])
             ),
         ]
     )
-    parsers["bolt:literal"] = RootRelativeLocationParser(
+    parsers["bolt:literal"] = RootLocationParser(
         parser=parsers["bolt:literal"], literal=True
     )
-    parsers["bolt:import"] = RootRelativeLocationParser(
+    parsers["bolt:import"] = RootLocationParser(
         parsers["bolt:import"], generate=ctx.generate
     )
 
@@ -59,22 +59,22 @@ def root_relative_location(ctx: Context):
         resolve_root_resource_location, ctx.generate
     )
 
-    runtime.modules.codegen.extend(RootRelativeLocationCodegen())
+    runtime.modules.codegen.extend(RootLocationCodegen())
 
 
 @dataclass(frozen=True)
 class AstRootResourceLocation(AstResourceLocation):
-    """Ast root-relative resource location node."""
+    """Ast root resource location node."""
 
     literal: bool = False
 
 
 @dataclass
-class RootRelativeLocationParser:
+class RootLocationParser:
     """
-    Parser that resolves root-relative resource locations.
+    Parser that resolves root resource locations.
 
-    `generate`: A `Generator` object. If provided, root-relative resource
+    `generate`: A `Generator` object. If provided, root resource
     locations are resolved during parsing.
 
     `literal`: A flag. If true, the parsed `AstRootResourceLocation` node
@@ -94,7 +94,7 @@ class RootRelativeLocationParser:
                 return self.parser(stream)
 
             is_tag = token.value.startswith("#")
-            path = token.value[3:] if is_tag else token.value[2:]
+            path = token.value[2:] if is_tag else token.value[1:]
 
             if self.generate:
                 full_path = self.generate.path(path)
@@ -111,7 +111,7 @@ class RootRelativeLocationParser:
 
 
 @dataclass
-class RootRelativeLocationCodegen(Visitor):
+class RootLocationCodegen(Visitor):
     @rule(AstRootResourceLocation)
     def root_location(self, node: AstRootResourceLocation, acc: Accumulator):
         result = acc.make_variable()
