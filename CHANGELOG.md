@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.1 (2023-08-04)
+### Fix
+* Add packaging module ([`dda1bb8`](https://github.com/TheWii/beet-plugins/commit/dda1bb825712f8889f6000797d2fba86bbd8ccbc))
+
 ## v0.8.0 (2023-08-04)
 ### Feature
 * Change root locations syntax to '/' ([`f952a8e`](https://github.com/TheWii/beet-plugins/commit/f952a8e49081abd44d972a835c6d1228ed2519d1))
