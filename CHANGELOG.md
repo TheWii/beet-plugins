@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.0 (2023-08-04)
+### Feature
+* Change root locations syntax to '/' ([`f952a8e`](https://github.com/TheWii/beet-plugins/commit/f952a8e49081abd44d972a835c6d1228ed2519d1))
+
 ## v0.7.1 (2023-08-03)
 ### Fix
 * Properly underline command in error message ([`c29dced`](https://github.com/TheWii/beet-plugins/commit/c29dced3c6ea95720f2a103ce23bc2dea0195d54))
