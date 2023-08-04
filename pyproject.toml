@@ -9,6 +9,7 @@ python = "^3.10"
 bolt = ">=0.37.0"
 bolt-expressions = ">=0.12.2"
 mecha = ">=0.74.0"
+packaging = "^23.1"
 
 [tool.poetry.dev-dependencies]
 python-semantic-release = "7.28.1"
