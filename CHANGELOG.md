@@ -2,6 +2,15 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.0 (2023-08-05)
+### Feature
+* Add utils:db ([`42bc40d`](https://github.com/TheWii/beet-plugins/commit/42bc40df7d4c470c58734142d3a57b7185dc2e9f))
+* Add utils:uuid ([`89a37b9`](https://github.com/TheWii/beet-plugins/commit/89a37b9aadfd32b13c1b4ea3362609112cbff8f4))
+
+### Fix
+* Use runtime.modules.current_path ([`8eb3653`](https://github.com/TheWii/beet-plugins/commit/8eb3653c3e38df9d6863d283a79bc4702fad1fab))
+* Rename utils:objectives temp objective and storage ([`23ece5c`](https://github.com/TheWii/beet-plugins/commit/23ece5cb7aa1ef2155fe9756bf14bdbd3999978f))
+
 ## v0.8.1 (2023-08-04)
 ### Fix
 * Add packaging module ([`dda1bb8`](https://github.com/TheWii/beet-plugins/commit/dda1bb825712f8889f6000797d2fba86bbd8ccbc))
