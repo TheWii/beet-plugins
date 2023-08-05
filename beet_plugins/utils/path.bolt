@@ -5,7 +5,7 @@ runtime = ctx.inject(Runtime)
 project_root = generate_path('')
 
 def current():
-    return runtime.get_path()
+    return runtime.modules.current_path
 
 def root(args):
     if not isinstance(args, (list, tuple)):
