@@ -1,0 +1,60 @@
+
+from bolt_expressions import Data, DataSource, Source
+from contextlib import contextmanager
+from pathlib import Path
+
+
+class StorageDB:
+    root: DataSource
+    path: Path
+
+    def __init__(self, root: tuple[str, str] | DataSource, path: str | Path):
+        """
+        Create a storage database located at `root`, with the
+        function API being generated at `path`.
+        """
+
+        if isinstance(root, tuple):
+            root_target, root_path = root
+            root = Data.storage(root_target)[root_path]
+        if isinstance(path, str):
+            path = Path(path)
+
+        self.root = root
+        self.path = path
+
+    def create(self, key: Source):
+        self.root.args.key = key
+        execute function (self.path/"create") with var self.root.args:
+            raw f'$data modify {self.root.entries} merge value {{"$(key)":{{}}}}'
+
+    def load(self, key: Source, create: bool = False):
+        if create:
+            self.create(key)
+        else:
+            self.root.args.key = key
+            self.root.entry.remove()
+
+        execute function (self.path/"load") with var self.root.args:
+            raw f'$data modify {self.root.entry} set from {self.root.entries["$(key)"]}'
+
+    def save(self, key: Source | None = None):
+        if key:
+            self.root.args.key = key
+        execute function (self.path/"save") with var self.root.args:
+            raw f'$data modify {self.root.entries["$(key)"]} set from {self.root.entry}'
+    
+    @contextmanager
+    def open(self, key: Source, save: bool = True, create: bool = False):
+        self.load(key, create=create)
+
+        yield self.root.entry
+
+        if save:
+            self.save()
+
+    def delete(self, key: Source):
+        self.root.args.key = key
+        function (self.path/"delete") with var self.root.args:
+            raw f'$data remove {self.root.entries["$(key)"]}'
+    
