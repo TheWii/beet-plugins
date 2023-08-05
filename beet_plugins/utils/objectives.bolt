@@ -7,7 +7,5 @@ def create_objective(name, criteria="dummy", prefixed=True):
     )
     return obj
 
-strg = Data.storage(generate_path("temp"))
-
-temp = create_objective("temp")
-main = create_objective("main")
+temp_obj = Scoreboard(Expression.opts.temp_objective, prefixed=False)
+temp_data = Data.storage(Expression.opts.temp_storage)

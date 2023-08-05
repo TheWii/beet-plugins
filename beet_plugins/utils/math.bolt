@@ -1,33 +1,32 @@
 from bolt_expressions import Expression, Scoreboard
 from ./path import root
+from ./objectives import temp_obj
 
-temp = Scoreboard(Expression.opts.temp_objective, prefixed_obj=False)
-
-input = temp["$input"]
-output = temp["$output"]
-scale_factor = temp["$scale_factor"]
+input = temp_obj["$input"]
+output = temp_obj["$output"]
+scale_factor = temp_obj["$scale_factor"]
 
 #
  #/ INPUT - The value to be taken the square root.
  #/         Can be a LITERAL, a SCORE or an EXPRESSION.
  #/ SCALE - The amount of DIGITS after the
  #/         DECIMAL POINT of the OUTPUT SCORE
- #/ RETURN score #output temp
+ #/ RETURN score #output temp_obj
  #/
  #/ Examples
  #/ obj["@s"] = sqrt(64)  # @s is 8
  #/ obj["@s"] = sqrt(64, scale=1) # @s is 80 (8.0)
  #/ obj["@s"] = sqrt( obj["@s"] * 3, scale=2 ) # @s is 1549 (15.49)
 def sqrt(value, scale=1):
-    temp["$input"] = value * scale
+    temp_obj["$input"] = value * scale
     execute function root("math/sqrt/solve"):
-        test = temp["$test"]
+        test = temp_obj["$test"]
         output = 0
         increment = 32768 # not a score
         for i in range(16):
             test = output + increment
             test *= test
-            if score $test temp <= $input temp:
+            if score $test temp_obj <= $input temp_obj:
                 output += increment
             increment //= 2
-    return temp["$output"]
+    return temp_obj["$output"]
