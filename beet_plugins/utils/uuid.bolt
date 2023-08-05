@@ -1,0 +1,74 @@
+from bolt_expressions import Source, DataSource
+from contextlib import contextmanager
+from bolt import Runtime
+
+from ./path import root
+from ./objectives import temp_obj, temp_data
+
+temp_strg = temp_data.utils
+
+
+# Generate char map
+HEX_CHARS = {}
+for i in range(16):
+    HEX_CHARS[str(i)] = str(hex(i))[2:]
+
+
+def int_to_hex(input: Source) -> DataSource:
+    t, buffer = temp_obj["$t", "$buffer"]
+
+    buffer = input
+    execute function root("utils/hex"):
+        temp_strg.chars = HEX_CHARS
+        temp_strg.hex = {}
+
+        # get hex chars
+        for i in range(7):
+            t = buffer
+            store result var temp_strg.hex[str(i)] int 1
+                scoreboard players operation var t %= $16 bolt.expr.const
+            buffer /= 16
+        t = buffer
+        store result var temp_strg.hex[str(i+1)] int 1
+            scoreboard players operation var t %= $16 bolt.expr.const
+        
+        # convert hex chars to strings
+        execute function ~/stringify with var temp_strg.hex:
+            for i in range(8):
+                raw f'$data modify {temp_strg.hex[str(i)]} set from {temp_strg.chars}.$({i})'
+
+        execute function ~/concatenate with var temp_strg.hex:
+            raw f'$data modify {temp_strg.result} set value "$(7)$(6)$(5)$(4)$(3)$(2)$(1)$(0)"'
+
+    return temp_strg.result
+
+
+def uuid_array_to_hex(array: DataSource) -> DataSource:
+    temp_strg.uuid.a = int_to_hex(array[0])
+
+    hex1 = int_to_hex(array[1])
+    data modify var temp_strg.uuid.b set string var hex1 0 4
+    data modify var temp_strg.uuid.c set string var hex1 4
+
+    hex2 = int_to_hex(array[2])
+    data modify var temp_strg.uuid.d set string var hex2 0 4
+    data modify var temp_strg.uuid.e set string var hex2 4
+
+    temp_strg.uuid.f = int_to_hex(array[3])
+
+    execute function root("utils/concatenate_uuid") with var temp_strg.uuid:
+        raw f'$data modify {temp_strg.hex_uuid} set value "$(a)-$(b)-$(c)-$(d)-$(e)$(f)"'
+    
+    return temp_strg.hex_uuid
+
+
+@contextmanager
+def as_uuid(args: DataSource, path: str | None = None):
+    if path is None:
+        path = ~/as_uuid_main
+
+    function path:
+        yield
+
+    execute function ~/as_uuid with var args:
+        raw f"$execute as $(uuid) run function {path}"
