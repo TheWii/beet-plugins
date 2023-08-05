@@ -1,4 +1,7 @@
-from utils:dynamic_pos import run_positioned
+from utils:data import loop
+from bolt_expressions import Data
 
-function run_positioned(./foo):
-    setblock ~ ~ ~ diamond_block
+strg = Data.storage(./temp)
+
+with loop(strg.items) as element:
+    tellraw @a element.id
