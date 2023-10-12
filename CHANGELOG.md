@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.1 (2023-10-12)
+### Fix
+* Remove nesting patch from latest_snapshot.py ([`2eff276`](https://github.com/TheWii/beet-plugins/commit/2eff276b75c5562a5cf081293125f5ca1d8b48ed))
+
 ## v0.9.0 (2023-08-05)
 ### Feature
 * Add utils:db ([`42bc40d`](https://github.com/TheWii/beet-plugins/commit/42bc40df7d4c470c58734142d3a57b7185dc2e9f))
