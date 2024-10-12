@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.0 (2024-10-12)
+### Feature
+* Add macro interpolation ([`d67d79b`](https://github.com/TheWii/beet-plugins/commit/d67d79b03c5e71a4a938f9027d59d3fb31ac6aea))
+
 ## v0.9.1 (2023-10-12)
 ### Fix
 * Remove nesting patch from latest_snapshot.py ([`2eff276`](https://github.com/TheWii/beet-plugins/commit/2eff276b75c5562a5cf081293125f5ca1d8b48ed))
