@@ -1,0 +1,12 @@
+name: example-macro-interpolation
+data_pack:
+  load:
+    data/test/functions: src
+output: dist
+require:
+  - bolt
+  - beet_plugins.macro_interpolation
+pipeline:
+  - mecha
+meta:
+  generate_namespace: "test"
