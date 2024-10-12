@@ -2,25 +2,26 @@
 
 [[package]]
 name = "beet"
-version = "0.89.1"
+version = "0.95.4"
 description = "The Minecraft pack development kit"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "beet-0.89.1-py3-none-any.whl", hash = "sha256:d475658b93c132429923caadfd90e777cbb04c235eea846fa96f075c68ab1268"},
-    {file = "beet-0.89.1.tar.gz", hash = "sha256:2b3341b67b1cb871997a653fb1e8caaa6dc43011bfb80e52f6b4bdc9f37b0d68"},
+    {file = "beet-0.95.4-py3-none-any.whl", hash = "sha256:b409fe546ecd0694990bf56d36710fed7eed8a9d409a721292bd200cc7754ea6"},
+    {file = "beet-0.95.4.tar.gz", hash = "sha256:061277f236ffd70ba5b68463fb3eb3b56d406d5a6cd9c964593f78c294df4db7"},
 ]
 
 [package.dependencies]
-click = ">=8.1.3,<9.0.0"
-click-help-colors = ">=0.9.1,<0.10.0"
+click = ">=8.1.7,<9.0.0"
+click-help-colors = ">=0.9.2,<0.10.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
 Jinja2 = ">=3.1.2,<4.0.0"
 nbtlib = ">=1.12.1,<2.0.0"
-pathspec = ">=0.11.0,<0.12.0"
-pydantic = ">=1.10.7,<2.0.0"
-PyYAML = ">=6.0,<7.0"
+pathspec = ">=0.11.2,<0.12.0"
+pydantic = ">=1,<2"
+PyYAML = ">=6.0.1,<7.0.0"
 toml = ">=0.10.2,<0.11.0"
+typing-extensions = ">=4.8.0,<5.0.0"
 
 [package.extras]
 image = ["Pillow"]
@@ -248,13 +249,13 @@ files = [
 
 [[package]]
 name = "click"
-version = "8.1.6"
+version = "8.1.7"
 description = "Composable command line interface toolkit"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "click-8.1.6-py3-none-any.whl", hash = "sha256:fa244bb30b3b5ee2cae3da8f55c9e5e0c0e86093306301fb418eb9dc40fbded5"},
-    {file = "click-8.1.6.tar.gz", hash = "sha256:48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"},
+    {file = "click-8.1.7-py3-none-any.whl", hash = "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28"},
+    {file = "click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"},
 ]
 
 [package.dependencies]
@@ -262,13 +263,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "click-help-colors"
-version = "0.9.1"
+version = "0.9.2"
 description = "Colorization of help messages in Click"
 optional = false
 python-versions = "*"
 files = [
-    {file = "click-help-colors-0.9.1.tar.gz", hash = "sha256:78cbcf30cfa81c5fc2a52f49220121e1a8190cd19197d9245997605d3405824d"},
-    {file = "click_help_colors-0.9.1-py3-none-any.whl", hash = "sha256:25a6bd22d8abbc72c18a416a1cf21ab65b6120bee48e9637829666cbad22d51d"},
+    {file = "click-help-colors-0.9.2.tar.gz", hash = "sha256:756245e542d29226bb3bc056bfa58886f212ba2b82f4e8cf5fc884176ac96d72"},
+    {file = "click_help_colors-0.9.2-py3-none-any.whl", hash = "sha256:82ef028cb0a332a154fa42fd7cca2c728a019b32bcb5a26bb32367551014a16f"},
 ]
 
 [package.dependencies]
@@ -572,17 +573,17 @@ files = [
 
 [[package]]
 name = "mecha"
-version = "0.75.2"
+version = "0.78.1"
 description = "A powerful Minecraft command library"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "mecha-0.75.2-py3-none-any.whl", hash = "sha256:6df4a9ca59e9fc7f1d1964d1846ac770b235da5255c790984626c845834e2ac2"},
-    {file = "mecha-0.75.2.tar.gz", hash = "sha256:29f2591af77d3a2a76115c5c24dfe08711d77e7439d1778ba59dfe1f9b8400f2"},
+    {file = "mecha-0.78.1-py3-none-any.whl", hash = "sha256:2196768945c7fe64bab3754e08c843d6c2264571c42e1a0988e657256d0c9a55"},
+    {file = "mecha-0.78.1.tar.gz", hash = "sha256:2e572935bbeabbd130c1af71af38308b2c76f57bd4a83401ab54b9e4c72aa45c"},
 ]
 
 [package.dependencies]
-beet = ">=0.86.0"
+beet = ">=0.95.4"
 tokenstream = ">=1.7.0,<2.0.0"
 
 [[package]]
@@ -1060,13 +1061,13 @@ urllib3 = ">=1.26.0"
 
 [[package]]
 name = "typing-extensions"
-version = "4.7.1"
-description = "Backported and Experimental Type Hints for Python 3.7+"
+version = "4.8.0"
+description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "typing_extensions-4.7.1-py3-none-any.whl", hash = "sha256:440d5dd3af93b060174bf433bccd69b0babc3b15b1a8dca43789fd7f61514b36"},
-    {file = "typing_extensions-4.7.1.tar.gz", hash = "sha256:b75ddc264f0ba5615db7ba217daeb99701ad295353c45f9e95963337ceeeffb2"},
+    {file = "typing_extensions-4.8.0-py3-none-any.whl", hash = "sha256:8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0"},
+    {file = "typing_extensions-4.8.0.tar.gz", hash = "sha256:df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"},
 ]
 
 [[package]]
